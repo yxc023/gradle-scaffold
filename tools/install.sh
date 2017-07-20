@@ -1,3 +1,4 @@
 templateName=$0
-echo "https://github.com/robbyrussell/oh-my-zsh/blob/master/buildScriptes/"$templateName"/_install.sh"
-curl -fsSL "https://github.com/robbyrussell/oh-my-zsh/blob/master/buildScriptes/"$templateName"/_install.sh"
+url="https://raw.githubusercontent.com/yxc023/spring-boot-scaffold/master/buildScripts/$templateName/_install.sh"
+echo $url
+curl -fsSL $url
