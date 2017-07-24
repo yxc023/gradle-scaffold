@@ -18,7 +18,7 @@ done
 
 chmod +x gradlew gradlew.bat
 
-echo -e "\n"
+echo "\n"
 echo "ok"
 echo "Then you need 『fnrd.group.url』，『fnrd.group.username』，『fnrd.group.password』in file 『~/..gradle/gradle.properties』"
 echo "You can change the properites name also, just keep same with it in 『build.gradle』"
