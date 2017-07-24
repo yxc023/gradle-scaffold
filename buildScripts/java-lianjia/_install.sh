@@ -1,4 +1,4 @@
-base_url="https://raw.githubusercontent.com/yxc023/spring-boot-scaffold/master/buildScripts/java/"
+base_url="https://raw.githubusercontent.com/yxc023/spring-boot-scaffold/master/buildScripts/java-lianjia/"
 
 file_array=(
 "gradle/wrapper/gradle-wrapper.jar" "gradle/wrapper/gradle-wrapper.properties"
@@ -18,5 +18,7 @@ done
 
 chmod +x gradlew gradlew.bat
 
-echo "need 『fnrd.group.url』，『fnrd.group.username』，『fnrd.group.password』in file 『~/..gradle/gradle.properties』"
-echo "you can change the properites name also, just keep same with it in 『build.gradle』"
+echo -e "\n"
+echo "ok"
+echo "Then you need 『fnrd.group.url』，『fnrd.group.username』，『fnrd.group.password』in file 『~/..gradle/gradle.properties』"
+echo "You can change the properites name also, just keep same with it in 『build.gradle』"
