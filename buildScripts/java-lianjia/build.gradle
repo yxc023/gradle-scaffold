@@ -1,0 +1,27 @@
+
+plugins{
+    id 'java'
+    id 'idea'
+    id "com.yangxiaochen.scaffold" version "1.0.2"
+}
+
+allprojects{
+    repositories {
+        maven {
+            url property("fnrd.group.url")
+            credentials {
+                username property("fnrd.group.username")
+                password property("fnrd.group.password")
+            }
+        }
+    }
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.24'
+
+    testCompile 'junit:junit:4.12'
+    // for assist
+    testCompile gradleApi()
+    testCompile localGroovy()
+}
