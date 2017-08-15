@@ -1,0 +1,71 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.ajoberstar:grgit:1.7.2'
+    }
+}
+
+
+import org.gradle.api.internal.tasks.options.Option
+
+class InitProjectTask extends DefaultTask {
+    
+    String projectName
+
+    @Option(option = "name", description = "project name to be init")
+    public void getProjectName(String projectName) {
+        this.projectName = projectName
+    }
+
+    @TaskAction
+    def exec() {
+        // project.mkdir(this.templateData)
+        // System.in.read()
+        if (!project.file('settings.gradle').exists()) {
+            project.file('settings.gradle') << "rootProject.name = '$projectName'"
+            println "create settings.gradle"
+        }
+
+        println "create project $projectName"
+
+    }
+}
+
+task initProject(type: InitProjectTask) {
+    group "init"
+    doLast {
+        println "hehe"
+    }
+}
+
+
+import org.ajoberstar.grgit.Grgit
+import org.ajoberstar.grgit.Status
+
+class InitSpringBootTask extends DefaultTask {
+    
+    String projectName
+
+    @Option(option = "name", description = "project name to be init")
+    public void getProjectName(String projectName) {
+        this.projectName = projectName
+    }
+
+    @TaskAction
+    def exec() {
+        if (!project.file('settings.gradle').exists()) {
+            project.file('settings.gradle') << "rootProject.name = '$projectName'"
+            println "create settings.gradle"
+        }
+        println "create project $projectName"
+
+        Grgit grgit = Grgit.clone(dir:"build/init/spring-boot-init", uri: "git@git.lianjia.com:yangxiaochen/spring-boot-boilerplate.git")
+
+    }
+}
+
+task initSpringBoot(type:InitSpringBootTask) {
+    group "init"
+}
